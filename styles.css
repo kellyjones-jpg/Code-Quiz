@@ -1,3 +1,9 @@
 .btnColor {
     background-color: purple;
 }
+
+button {
+    background-color: purple;
+    border-color: purple;
+    color: white;
+}

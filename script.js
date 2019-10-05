@@ -3,6 +3,7 @@ var timeEl = document.querySelector(".iTime")
 var questionsEl = document.querySelector(".questions-rendered");
 
 var secondsLeft = 75;
+var penaltySeconds = 10;
 var timerInterval;
 
 function setTime() 
