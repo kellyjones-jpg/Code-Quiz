@@ -35,7 +35,8 @@ startBtn.addEventListener('click', function()
 var questionIndex = 0;
 
 // function to display the current question/answers
-function displayQuestions() {
+function displayQuestions() 
+{
     // clearing out the HTML from the previous question, to clear the slate for the current one
     questionsEl.textContent = "";
 
@@ -54,7 +55,8 @@ function displayQuestions() {
     questionDiv.appendChild(questionText)
 
     // looping through each of the answers in the current question's choices array
-    for (i = 0; i < question.choices.length; i++) {
+    for (i = 0; i < question.choices.length; i++) 
+    {
         // for each answer, all of the below steps happen:
 
         // creating a new button element and store it in the 'answer' variable
@@ -64,7 +66,8 @@ function displayQuestions() {
         // adding a class of 'option' to each button (to make wiring up a click event more straightforward)
         option.setAttribute("class", "option");
         // adding a click event for the newly-created button
-        option.addEventListener("click", function(e) {
+        option.addEventListener("click", function(e) 
+        {
             alert("clicked on an option");
             // YOUR LOGIC GOES HERE:
                 // 1) get the answer the user clicked on and compare it to the correct answer
