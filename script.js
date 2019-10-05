@@ -58,14 +58,14 @@ function displayQuestions() {
         // for each answer, all of the below steps happen:
 
         // creating a new button element and store it in the 'answer' variable
-        var answer = document.createElement("button");
-        // storing the text of the current answer inside the newly-created button
-        answer.textContent = question.choices[i];
-        // adding a class of 'answer' to each button (to make wiring up a click event more straightforward)
-        answer.setAttribute("class", "answer");
+        var option = document.createElement("button");
+        // storing the text of the current option inside the newly-created button
+        option.textContent = question.choices[i];
+        // adding a class of 'option' to each button (to make wiring up a click event more straightforward)
+        option.setAttribute("class", "option");
         // adding a click event for the newly-created button
-        answer.addEventListener("click", function() {
-            alert("clicked on an answer");
+        option.addEventListener("click", function() {
+            alert("clicked on an option");
             // YOUR LOGIC GOES HERE:
                 // 1) get the answer the user clicked on and compare it to the correct answer
                 // 2) likely add to correct/incorrect counters
@@ -75,7 +75,7 @@ function displayQuestions() {
                 // 6) consider moving this functionality into a separate function, maybe?
         })
         // then adding the new button (containing the answer text) to the wrapper div
-        questionDiv.appendChild(answer);
+        questionDiv.appendChild(option);
     }
 
     // by the time you reach this point in the code, you now have a question wrapper div
