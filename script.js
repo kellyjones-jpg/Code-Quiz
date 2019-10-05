@@ -64,10 +64,21 @@ function displayQuestions() {
         // adding a class of 'option' to each button (to make wiring up a click event more straightforward)
         option.setAttribute("class", "option");
         // adding a click event for the newly-created button
-        option.addEventListener("click", function() {
+        option.addEventListener("click", function(e) {
             alert("clicked on an option");
             // YOUR LOGIC GOES HERE:
                 // 1) get the answer the user clicked on and compare it to the correct answer
+                var optionClicked = (e.target.innerHTML); 
+                if(optionClicked === questions[questionIndex].correctAnswer)
+                {
+                    alert("correct");
+                    displayQuestions(questionIndex++);
+                }
+                else
+                    {
+                        alert("incorrect");
+                        displayQuestions(questionIndex++);
+                    }
                 // 2) likely add to correct/incorrect counters
                 // 3) increment 'questionIndex', to change pointer to next question
                 // 4) call 'displayQuestions' function, which will then render the next question
