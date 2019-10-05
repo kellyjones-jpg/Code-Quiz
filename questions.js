@@ -25,38 +25,3 @@ var questions = [
         correctAnswer: "console.log"
     }
 ];
-
-var timeEl = document.querySelector(".iTime")
-
-var secondsLeft = 75;
-var timerInterval;
-
-function setTime() 
-{
-    timerInterval = setInterval(function() 
-    {
-        secondsLeft--;
-        timeEl.textContent = "Time Remaining: " + secondsLeft;
-        if(secondsLeft === 0) 
-        {
-            clearInterval(timerInterval);
-        }
-
-    }, 1000);
-}
-
-const startBtn = document.getElementById("start");
-startBtn.addEventListener('click', function()
-{
-    setTime();
-    startBtn.style.display = 'none';
-})
-
-var questionIndex = 0;
-function displayQuestions()
-{
-    var question = questions[questionIndex];
-    document.querySelector(".questions-dynamically-rendered-here").textContent = question.title;
-}
-
-displayQuestions
