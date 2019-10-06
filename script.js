@@ -23,6 +23,8 @@ function setTime()
 const startBtn = document.getElementById("start");
 startBtn.addEventListener('click', function()
 {
+    secondsRemaining = 75;
+    numCorrect = 0;
     setTime();
     startBtn.style.display = 'none';
     displayQuestions();
