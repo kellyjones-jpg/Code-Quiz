@@ -77,6 +77,7 @@ function startOver()
     timeEl.textContent = "Time Remaining: 0";
     startBtn.style.display = "initial";
     viewScoresBtn.style.display = "initial";
+    document.getElementById("instructions").innerHTML = "As a coding bootcamp student, I want to take a timed quiz on JavaScript fundamentals that stores high scores so I can gauge my progrees compared to my peers.";
 }
 
 // If clicked, will show high scores in the array, but if array is empty, shows "no scores"
@@ -112,6 +113,7 @@ startBtn.addEventListener('click', function ()
     viewScoresBtn.style.display = "none";
 
     document.getElementById("choice-response").innerHTML = "";
+    document.getElementById("instructions").innerHTML = "";
 
     displayQuestions();
 })
