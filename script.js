@@ -2,17 +2,18 @@ var timeEl = document.querySelector(".iTime")
 // made this into a variable for reusability
 var questionsEl = document.querySelector(".questions-rendered");
 
-var secondsLeft = 75;
+var secondsRemaining = 75;
 var penaltySeconds = 10;
 var timerInterval;
+var numCorrect = 0;
 
 function setTime() 
 {
     timerInterval = setInterval(function() 
     {
-        secondsLeft--;
-        timeEl.textContent = "Time Remaining: " + secondsLeft;
-        if(secondsLeft === 0) 
+        secondsRemaining--;
+        timeEl.textContent = "Time Remaining: " + secondsRemaining;
+        if(secondsRemaining === 0) 
         {
             clearInterval(timerInterval);
         }
