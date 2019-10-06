@@ -6,4 +6,5 @@ button {
     background-color: purple;
     border-color: purple;
     color: white;
+    border-radius: 10px;
 }
