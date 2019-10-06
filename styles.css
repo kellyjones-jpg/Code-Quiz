@@ -12,3 +12,7 @@ button {
 #choice-response {
     color: gray;    
 }
+
+.button:hover {
+    background-color: lightgray;
+}

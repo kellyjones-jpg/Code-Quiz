@@ -17,10 +17,21 @@
             <h2>Coding Quiz</h2>
             <h4 class="iTime"></h4>
             <button type="button" class="btnColor btn btn-secondary" id="start">Start Quiz</button>
+            <button type="button" class="btn btn-secondary" id="viewScores" onclick="viewAllScores()">View High
+                Scores</button>
             <main class="questions-rendered"></main>
             <p id="choice-response"></p>
         </div>
-
+        <div id="initialsDiv" class="text-center" style="display:none">
+            Enter Initials: <input type="text" onfocus="this.value=''" id="myInitials" value="">
+            <button type="button" class="btnColor btn btn-secondary" id="enterInitials" onclick="getInitials()">Submit</button>
+        </div>
+        <div id="scoresDiv" class="text-center" style="display:none">
+            <button type="button" class="btn btn-light" id="goBack" onclick="startOver()">Go Back</button>
+            <button type="button" class="btn btn-light" id="clearScores" onclick="clearScores()">Clear High
+                Scores</button>
+        </div>
+    </div>
 </body>
 <script src="questions.js"></script>
 <script src="script.js"></script>
