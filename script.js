@@ -15,6 +15,7 @@ const viewScoresBtn = document.getElementById("viewScores");
 const initialsDiv = document.getElementById("initialsDiv");
 const scoresDiv = document.getElementById("scoresDiv");
 
+// Starts timer
 function setTime() {
     timerInterval = setInterval(function () {
         secondsRemaining--;
@@ -27,16 +28,22 @@ function setTime() {
 }
 
 function finish() {
+    // Stops timer
     clearInterval(timerInterval);
     secondsRemaining = 0;
+    // Displays when the quiz is done
     document.querySelector(".iTime").innerHTML = "Done";
     questionsEl.textContent = "";
     score = numCorrect * (100 / questions.length);
+    // Displays final score
     document.getElementById("choice-response").innerHTML = "Your final score is: " + score;
+    // Pops up div to enter initials
     initialsDiv.style.display = "block";
     document.getElementById("myInitials").value = "";
 }
 
+// Gets initials after selecting submit button
+// Does not validate whether or not initials were entered
 function getInitials() {
     if (highScoresArray.length === 0) {
         highScores = document.getElementById("myInitials").value + " - " + score;
@@ -52,6 +59,7 @@ function getInitials() {
     scoresDiv.style.display = "block";
 }
 
+// If "Go Back" button is clicked, this function is triggered to go back to the start page
 function startOver() {
     document.getElementById("choice-response").innerHTML = "";
     scoresDiv.style.display = "none";
@@ -60,6 +68,7 @@ function startOver() {
     viewScoresBtn.style.display = "initial";
 }
 
+// If clicked, will show high scores in the array, but if array is empty, shows "no scores"
 function viewAllScores() {
     if (highScoresArray.length === 0) {
         document.getElementById("choice-response").innerHTML = "No Scores: "
@@ -69,11 +78,13 @@ function viewAllScores() {
     }
 }
 
+// Empties array when "Clear High Scores" is clicked 
 function clearScores() {
     highScoresArray = [];
     document.getElementById("choice-response").innerHTML = highScoresArray;
 }
 
+// Resetting values needed to start a new quiz
 startBtn.addEventListener('click', function () {
     secondsRemaining = 75;
     setTime();
@@ -89,6 +100,7 @@ startBtn.addEventListener('click', function () {
     displayQuestions();
 })
 
+// Displays question and answers from the array one after the other
 function displayQuestions() {
     if (secondsRemaining <= 0 || questionIndex >= questions.length) {
         finish();
@@ -104,21 +116,27 @@ function displayQuestions() {
 
     questionDiv.appendChild(questionText)
 
-    for (i = 0; i < question.choices.length; i++) {
+    for (i = 0; i < question.choices.length; i++) 
+    {
         var option = document.createElement("button");
 
         option.textContent = question.choices[i];
 
         option.setAttribute("class", "option");
 
-        option.addEventListener("click", function (e) {
+        option.addEventListener("click", function (e) 
+        {
             var optionClicked = (e.target.innerHTML);
-            if (optionClicked === questions[questionIndex].correctAnswer) {
+            if (optionClicked === questions[questionIndex].correctAnswer) 
+            {
+                // Variable is keeping track of the correct answers
                 numCorrect++;
                 document.getElementById("choice-response").innerHTML = "correct";
                 displayQuestions(questionIndex++);
             }
-            else {
+            else 
+            {
+                // Incorrect answers result in a time penalty
                 secondsRemaining = secondsRemaining - penaltySeconds;
                 document.getElementById("choice-response").innerHTML = "wrong";
                 displayQuestions(questionIndex++);
