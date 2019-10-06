@@ -16,36 +16,46 @@ const initialsDiv = document.getElementById("initialsDiv");
 const scoresDiv = document.getElementById("scoresDiv");
 
 // Starts timer
-function setTime() {
-    timerInterval = setInterval(function () {
+function setTime() 
+{
+    timerInterval = setInterval(function () 
+    {
         secondsRemaining--;
         timeEl.textContent = "Time Remaining: " + secondsRemaining;
-        if (secondsRemaining === 0) {
+        if (secondsRemaining === 0) 
+        {
             finish();
         }
 
     }, 1000);
 }
 
-function finish() {
+function finish() 
+{
     // Stops timer
     clearInterval(timerInterval);
+    // Sets variable to zero
     secondsRemaining = 0;
-    // Displays when the quiz is done
+    // Changes time remaining heading to "Done" when the quiz is complete
     document.querySelector(".iTime").innerHTML = "Done";
+    // Clears out last question displayed
     questionsEl.textContent = "";
+    // Calculates score 
     score = numCorrect * (100 / questions.length);
     // Displays final score
     document.getElementById("choice-response").innerHTML = "Your final score is: " + score;
     // Pops up div to enter initials
     initialsDiv.style.display = "block";
+    // Clears out textbox of previous user initials; empty box every time 
     document.getElementById("myInitials").value = "";
 }
 
 // Gets initials after selecting submit button
 // Does not validate whether or not initials were entered
-function getInitials() {
-    if (highScoresArray.length === 0) {
+function getInitials() 
+{
+    if (highScoresArray.length === 0) 
+    {
         highScores = document.getElementById("myInitials").value + " - " + score;
     }
     else {
@@ -60,7 +70,8 @@ function getInitials() {
 }
 
 // If "Go Back" button is clicked, this function is triggered to go back to the start page
-function startOver() {
+function startOver() 
+{
     document.getElementById("choice-response").innerHTML = "";
     scoresDiv.style.display = "none";
     timeEl.textContent = "Time Remaining: 0";
@@ -69,23 +80,28 @@ function startOver() {
 }
 
 // If clicked, will show high scores in the array, but if array is empty, shows "no scores"
-function viewAllScores() {
-    if (highScoresArray.length === 0) {
+function viewAllScores() 
+{
+    if (highScoresArray.length === 0) 
+    {
         document.getElementById("choice-response").innerHTML = "No Scores: "
     }
-    else {
+    else 
+    {
         document.getElementById("choice-response").innerHTML = "High Scores: " + highScoresArray;
     }
 }
 
 // Empties array when "Clear High Scores" is clicked 
-function clearScores() {
+function clearScores() 
+{
     highScoresArray = [];
     document.getElementById("choice-response").innerHTML = highScoresArray;
 }
 
 // Resetting values needed to start a new quiz
-startBtn.addEventListener('click', function () {
+startBtn.addEventListener('click', function () 
+{
     secondsRemaining = 75;
     setTime();
 
@@ -101,8 +117,10 @@ startBtn.addEventListener('click', function () {
 })
 
 // Displays question and answers from the array one after the other
-function displayQuestions() {
-    if (secondsRemaining <= 0 || questionIndex >= questions.length) {
+function displayQuestions() 
+{
+    if (secondsRemaining <= 0 || questionIndex >= questions.length) 
+    {
         finish();
         return;
     }
