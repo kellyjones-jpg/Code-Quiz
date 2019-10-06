@@ -75,11 +75,13 @@ function displayQuestions()
                 var optionClicked = (e.target.innerHTML); 
                 if(optionClicked === questions[questionIndex].correctAnswer)
                 {
+                    numCorrect++;
                     document.getElementById("choice-response").innerHTML = "correct";
                     displayQuestions(questionIndex++);
                 }
                 else
                     {
+                        secondsRemaining = secondsRemaining-penaltySeconds;
                         document.getElementById("choice-response").innerHTML = "wrong";
                         displayQuestions(questionIndex++);
                     }
