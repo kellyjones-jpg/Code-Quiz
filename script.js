@@ -70,18 +70,17 @@ function displayQuestions()
         // adding a click event for the newly-created button
         option.addEventListener("click", function(e) 
         {
-            alert("clicked on an option");
             // YOUR LOGIC GOES HERE:
                 // 1) get the answer the user clicked on and compare it to the correct answer
                 var optionClicked = (e.target.innerHTML); 
                 if(optionClicked === questions[questionIndex].correctAnswer)
                 {
-                    alert("correct");
+                    document.getElementById("choice-response").innerHTML = "correct";
                     displayQuestions(questionIndex++);
                 }
                 else
                     {
-                        alert("incorrect");
+                        document.getElementById("choice-response").innerHTML = "wrong";
                         displayQuestions(questionIndex++);
                     }
                 // 2) likely add to correct/incorrect counters
