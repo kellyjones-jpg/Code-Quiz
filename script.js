@@ -142,7 +142,7 @@ function displayQuestions()
 
         option.textContent = question.choices[i];
 
-        option.style.cssText = "display: block; padding: 5px; margin-left: 45%; margin-bottom: 5px;";
+        option.style.cssText = "display: block; padding: 5px; margin-left: 40%; margin-bottom: 5px; width: 175px;";
         option.setAttribute("class", "option");
 
         option.addEventListener("click", function (e) 
