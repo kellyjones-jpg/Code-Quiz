@@ -12,3 +12,12 @@ button {
 #choice-response {
     color: gray;    
 }
+
+#instructions {
+    color: dimgray;
+}
+
+.container {
+    margin-top: 10%;
+    padding: 10px;
+}
